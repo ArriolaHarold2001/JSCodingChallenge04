@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  margin: 100px 0;
+  background: linear-gradient(to right, #c31432, #240b36);
+}
+
+button {
+  border: none;
+  background-color: black;
+  color: white;
+  padding: 100px;
+  margin: 50px;
+  font-size: xx-large;
+  cursor: pointer;
+  border-radius: 7.5px;
+}
+
+@media screen and (max-width: 510px) {
+  body {
+    flex-direction: column;
+  }
+  button {
+    padding: 30px;
+  }
+}
