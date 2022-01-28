@@ -1,13 +1,13 @@
-"use strict";
+"use strict"
 
 const numAverage = function (numArr) {
-  const arrLength = numArr.length;
-  let newNum = 0;
+  const arrLength = numArr.length
+  let newNum = 0
   for (let i = 0; i < arrLength; i++) {
-    newNum += numArr[i];
+    newNum += numArr[i]
   }
-  console.log(newNum / arrLength);
-};
+  console.log(newNum / arrLength)
+}
 
 //numAverage([1, 4, 7]); //  Output: 4
 //numAverage([10, 5]); //Output: 7.5
@@ -22,11 +22,11 @@ const numAverage = function (numArr) {
 
 const targetArr = function (input, target) {
   if (input.includes(target)) {
-    console.log(input.indexOf(target));
+    console.log(input.indexOf(target))
   } else {
-    console.log(-1);
+    console.log(-1)
   }
-};
+}
 
 //targetArr([4, 5, 6, 7, 0, 1, 2], 0); //target = 0 Output: 4
 //targetArr([4, 5, 6, 7, 0, 1, 2], 3); //target = 3 Output: -1.
@@ -40,39 +40,39 @@ const targetArr = function (input, target) {
 // *Note: Check Canvas for the starter code needed for this exercise.
 //  The starter code will be located in a folder named hard_js.
 
-const redBtn = document.querySelector("#red");
-const whiteBtn = document.querySelector("#white");
+const redBtn = document.querySelector("#red")
+const whiteBtn = document.querySelector("#white")
 
 redBtn.addEventListener("mousedown", function () {
-  redBtn.style.backgroundColor = "red";
+  redBtn.style.backgroundColor = "red"
   redBtn.addEventListener("mouseup", function () {
-    redBtn.style.backgroundColor = "black";
-  });
-});
+    redBtn.style.backgroundColor = "black"
+  })
+})
 
 whiteBtn.addEventListener("mousedown", function () {
-  whiteBtn.style.backgroundColor = "white";
-  whiteBtn.style.color = "black";
+  whiteBtn.style.backgroundColor = "white"
+  whiteBtn.style.color = "black"
   whiteBtn.addEventListener("mouseup", function () {
-    whiteBtn.style.backgroundColor = "black";
-    whiteBtn.style.color = "white";
-  });
-});
+    whiteBtn.style.backgroundColor = "black"
+    whiteBtn.style.color = "white"
+  })
+})
 
 redBtn.addEventListener("touchstart", function () {
-  redBtn.style.backgroundColor = "red";
+  redBtn.style.backgroundColor = "red"
   redBtn.addEventListener("touchend", function () {
-    redBtn.style.backgroundColor = "black";
-  });
-});
+    redBtn.style.backgroundColor = "black"
+  })
+})
 whiteBtn.addEventListener("touchstart", function () {
-  whiteBtn.style.backgroundColor = "white";
-  whiteBtn.style.color = "black";
+  whiteBtn.style.backgroundColor = "white"
+  whiteBtn.style.color = "black"
   whiteBtn.addEventListener("touchend", function () {
-    whiteBtn.style.backgroundColor = "black";
-    whiteBtn.style.color = "white";
-  });
-});
+    whiteBtn.style.backgroundColor = "black"
+    whiteBtn.style.color = "white"
+  })
+})
 
 // *VERY HARD: You are given coins of different denominations and a total amount of money amount.
 //  Write a function to compute the fewest number of coins that you need to make up that amount.
@@ -81,20 +81,26 @@ whiteBtn.addEventListener("touchstart", function () {
 // Hint:  Sudo code this problem. Focus on breaking the problem down into steps  Use functions, arrays and logical operators.
 //   Do not have anyone give you the answer or solve this problem for you.
 
-const leastCoins = function (coins, target) {
-  let sum = 0;
-  coins.sort();
-  if (sum === target) {
-    console.log(sum);
-  } else {
-    for (let i = 0; i < target; i++) {
-      sum += coins[i];
-      console.log(sum);
+const minCoin = function (coins, target) {
+  coins.sort()
+  let minCoins = 0
+  while (target > 0) {
+    for (let i = coins.length - 1; i > -1; i--) {
+      if (coins[i] <= target) {
+        target -= coins[i]
+        minCoins += 1
+        break
+      }
+      if (i === 0 && coins[i] > target) {
+        return -1
+      }
     }
-    leastCoins(sum, target);
   }
-};
-// leastCoins([1, 2, 5], 8);
+  return minCoins
+}
+
+console.log(minCoin([1, 2, 5], 11))
+console.log(minCoin([2], 3))
 
 // Example 1:
 
