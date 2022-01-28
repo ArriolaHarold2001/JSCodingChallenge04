@@ -1,17 +1,17 @@
-"use strict"
+"use strict";
 
 const numAverage = function (numArr) {
-  const arrLength = numArr.length
-  let newNum = 0
+  const arrLength = numArr.length;
+  let newNum = 0;
   for (let i = 0; i < arrLength; i++) {
-    newNum += numArr[i]
+    newNum += numArr[i];
   }
-  console.log(newNum / arrLength)
-}
+  return newNum / arrLength;
+};
 
 //numAverage([1, 4, 7]); //  Output: 4
-//numAverage([10, 5]); //Output: 7.5
-//numAverage([1.5, 3, 2.5, 1]); //Output: 2
+console.log(numAverage([10, 5])); //Output: 7.5
+console.log(numAverage([1.5, 3, 2.5, 1])); //Output: 2
 
 // MEDIUM: Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.
 //  (i.e., [0,1,2,4,5,6,7] might become [4,5,6,7,0,1,2]).
@@ -22,14 +22,14 @@ const numAverage = function (numArr) {
 
 const targetArr = function (input, target) {
   if (input.includes(target)) {
-    console.log(input.indexOf(target))
+    return input.indexOf(target);
   } else {
-    console.log(-1)
+    return -1;
   }
-}
+};
 
-//targetArr([4, 5, 6, 7, 0, 1, 2], 0); //target = 0 Output: 4
-//targetArr([4, 5, 6, 7, 0, 1, 2], 3); //target = 3 Output: -1.
+console.log(targetArr([4, 5, 6, 7, 0, 1, 2], 0)); //target = 0 Output: 4
+console.log(targetArr([4, 5, 6, 7, 0, 1, 2], 3)); //target = 3 Output: -1.
 
 // HARD: Create two buttons, one that when clicked turns the background of the body red.
 // The other, when clicked, turns the body's background color white.
@@ -40,39 +40,39 @@ const targetArr = function (input, target) {
 // *Note: Check Canvas for the starter code needed for this exercise.
 //  The starter code will be located in a folder named hard_js.
 
-const redBtn = document.querySelector("#red")
-const whiteBtn = document.querySelector("#white")
+const redBtn = document.querySelector("#red");
+const whiteBtn = document.querySelector("#white");
 
 redBtn.addEventListener("mousedown", function () {
-  redBtn.style.backgroundColor = "red"
+  redBtn.style.backgroundColor = "red";
   redBtn.addEventListener("mouseup", function () {
-    redBtn.style.backgroundColor = "black"
-  })
-})
+    redBtn.style.backgroundColor = "black";
+  });
+});
 
 whiteBtn.addEventListener("mousedown", function () {
-  whiteBtn.style.backgroundColor = "white"
-  whiteBtn.style.color = "black"
+  whiteBtn.style.backgroundColor = "white";
+  whiteBtn.style.color = "black";
   whiteBtn.addEventListener("mouseup", function () {
-    whiteBtn.style.backgroundColor = "black"
-    whiteBtn.style.color = "white"
-  })
-})
+    whiteBtn.style.backgroundColor = "black";
+    whiteBtn.style.color = "white";
+  });
+});
 
 redBtn.addEventListener("touchstart", function () {
-  redBtn.style.backgroundColor = "red"
+  redBtn.style.backgroundColor = "red";
   redBtn.addEventListener("touchend", function () {
-    redBtn.style.backgroundColor = "black"
-  })
-})
+    redBtn.style.backgroundColor = "black";
+  });
+});
 whiteBtn.addEventListener("touchstart", function () {
-  whiteBtn.style.backgroundColor = "white"
-  whiteBtn.style.color = "black"
+  whiteBtn.style.backgroundColor = "white";
+  whiteBtn.style.color = "black";
   whiteBtn.addEventListener("touchend", function () {
-    whiteBtn.style.backgroundColor = "black"
-    whiteBtn.style.color = "white"
-  })
-})
+    whiteBtn.style.backgroundColor = "black";
+    whiteBtn.style.color = "white";
+  });
+});
 
 // *VERY HARD: You are given coins of different denominations and a total amount of money amount.
 //  Write a function to compute the fewest number of coins that you need to make up that amount.
@@ -82,36 +82,22 @@ whiteBtn.addEventListener("touchstart", function () {
 //   Do not have anyone give you the answer or solve this problem for you.
 
 const minCoin = function (coins, target) {
-  coins.sort()
-  let minCoins = 0
+  coins.sort();
+  let minCoins = 0;
   while (target > 0) {
     for (let i = coins.length - 1; i > -1; i--) {
       if (coins[i] <= target) {
-        target -= coins[i]
-        minCoins += 1
-        break
+        target -= coins[i];
+        minCoins += 1;
+        break;
       }
       if (i === 0 && coins[i] > target) {
-        return -1
+        return -1;
       }
     }
   }
-  return minCoins
-}
+  return minCoins;
+};
 
-console.log(minCoin([1, 2, 5], 11))
-console.log(minCoin([2], 3))
-
-// Example 1:
-
-// Input: coins = [1, 2, 5], amount = 11
-
-// Output: 3
-
-// Explanation: 11 = 5 + 5 + 1
-
-// Example 2:
-
-// Input: coins = [2], amount = 3
-
-// Output: -1
+console.log(minCoin([1, 2, 5], 11));
+console.log(minCoin([2], 3));
